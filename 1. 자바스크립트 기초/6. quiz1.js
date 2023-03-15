@@ -9,7 +9,7 @@ if( x > y) {
     t = x;
     y = x;
     y = t;
-    
+
 }
 
 var total = 0;
@@ -21,4 +21,10 @@ while (n <= y) {
 
     n++;
 }
+
+for(var n = x; n<=y ; n++){
+        // 반복 코드
+        total += n;
+}
+
 console.log(`${x} ~ ${y}까지의 누적합: ${total}`);

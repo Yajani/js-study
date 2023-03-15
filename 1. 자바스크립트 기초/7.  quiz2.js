@@ -19,4 +19,12 @@ while (k <= n) {
     k++;
 }
 
+for(var i= 1 ; i <= n ; i++ ){
+    if (i % 2 === 1) { // 홀수라면
+        resultMark += '+';
+    } else { // 짝수라면
+        resultMark += '-';
+    }
+}
+
 alert(resultMark)
