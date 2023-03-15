@@ -3,14 +3,13 @@ var x = +prompt('첫번째 숫자를 입력!')
 var y = +prompt('두번째 숫자를 입력!')
 
 
-if( x > y) {
-    //swap
-    var t;
-    t = x;
-    y = x;
-    y = t;
-
-}
+// if( x > y) {
+//     //swap
+//     var t;
+//     t = x;
+//     y = x;
+//     y = t;
+// }
 
 var total = 0;
 var n = x;
