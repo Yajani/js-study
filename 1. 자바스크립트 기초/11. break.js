@@ -1,5 +1,15 @@
 
-
+outer :for(var i=0 ; i< 3; i++){
+    inner : for( var j=0; j<2; j++) {
+        if(i === j ){
+            break;
+            // break inner; ->이것도 가능 
+            //inner for문에서 빠져나간다
+        }
+        console.log(`[ ${i}, ${j} ]`);
+    }
+}
+console.log('============================');
 //5000번의 루프 중 1~100사이의 랜덤숫자중 30이 
 //나오면 반복을 중간에 멈추고 싶다.
 
