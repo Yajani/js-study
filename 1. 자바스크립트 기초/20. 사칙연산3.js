@@ -1,7 +1,7 @@
 alert('~~~~~재미있는 사칙연산 게임 ~~~~~~\n[즐겁게 문제를 푸시다가 지겨우면0을 누르세요~]\n======================================');
 
 while(true) {
-    var right = 0, wrong = 0;
+    var right = 0, wroung = 0;
     var range = 0;
     var count =1;
     while(true){
@@ -26,10 +26,10 @@ while(true) {
     
     while(true){
     
-        var front = Math.floor(Math.random() * range) + 1
-        var back = Math.floor(Math.random() * range) + 1
-        var n1 = front>back ? front:back;
-        var n2 = front>back ? back:front;
+        var first = Math.floor(Math.random() * range) + 1
+        var second = Math.floor(Math.random() * range) + 1
+        var n1 = first>second ? first:second;
+        var n2 = first>second ? second:first;
     
         var option = Math.floor(Math.random() * 4) + 1
         var result =0; 
@@ -63,11 +63,11 @@ while(true) {
         }  
         else {
             alert('틀렸어요~');
-            wrong++;  
+            wroung++;  
         }         
     }//end game loop
                                                             
-    alert(`게임을 종료합니다!\n-------------------\n정답횟수 : ${right}회, 틀린횟수 : ${wrong}회`);
+    alert(`게임을 종료합니다!\n-------------------\n정답횟수 : ${right}회, 틀린횟수 : ${wroung}회`);
 
     if(gameEndFlag){
         var exitFlag = confirm('한판 더 ?');
