@@ -95,4 +95,4 @@ while (true) {
     }
 } // end each game
 
-alert(`정답 횟수: ${correctCount}회, 틀린 횟수: ${wrongCount}회`);
+alert(`정답 횟수: ${correctCount}회, 틀린 횟수: ${wrongCount}회`);ㅍ
