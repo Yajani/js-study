@@ -8,7 +8,16 @@ for(var level=2; level<=9; level++){
     console.log('==================================');
 }
 
+var x =1;
 
+for(var i =0; i<3; i++){
+    for(var j=0; j<4; j++){
+        for(var k=0; k<2; k++){
+            console.log(`hello${x++}`);
+        }
+    }
+    // console.log();
+}
 
 
 // var line =1;
