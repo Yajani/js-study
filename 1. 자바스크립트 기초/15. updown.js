@@ -12,9 +12,6 @@
 
 // F2누르고 변수 이름 바꾸면 전체가 다 바뀜 !!!!!!
 
-var flag = confirm('게임을 다시 하실래요?');
-
-
 while (true) {
     var HIGH = 1, MIDDLE =2, LOW = 3;
     
