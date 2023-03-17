@@ -8,37 +8,80 @@
 3. 배열에 없는 이름을 입력하면 'xxx는 잘못된 이름입니다.'라고 출력한 후 다시 삭제할 이름을 입력할 수 있도록 하세요.
 4. 전체멤버를 정확하게 삭제할때까지 프로그램은 계속되어야 합니다.
 */
+var tvxq = ['유노윤호', '최강창민', '영웅재중', '믹키유천', '시아준수'];
 
-var dong = ['유노윤호', '최강창민', '영웅재중', '믹키유천', '시아준수'];
+//삭제
+while (tvxq.length > 0) {
 
-while(true){
-    var deleteMember = prompt(`현재 멤버 : ${dong}\n삭제할 이름을 입력하세요.`);
-    if(dong.includes(deleteMember)){
-        dong.splice(dong.indexOf(deleteMember),1);
-        alert(`삭제완료!\n남은 멤버: ${dong}`);
-    } else{
-        alert(`${deleteMember}은(는) 잘못된 이름입니다.\n다시 입력하세요!`);
+    var delTarget = prompt(`현재 멤버: [${tvxq}]\n삭제할 이름을 입력하세요.`);
+
+    if (tvxq.includes(delTarget)) {
+        // 일단은 존재함
+        tvxq.splice(tvxq.indexOf(delTarget), 1);
+        alert(`삭제 완료!\n남은 멤버: [${tvxq}]`);
+    } else {
+        alert(`${delTarget}은(는) 잘못된 이름입니다.\n다시 입력하세요!`);
     }
 
-    if(dong.length === 0){
-        alert('모든 멤버가 삭제되었습니다.');
+    // if (tvxq.length === 0) {
+    //     alert('모든 멤버가 삭제되었습니다.');
+    //     break;
+    // }
+
+}
+
+//수정
+var tvxq = ['유노윤호', '최강창민', '영웅재중', '믹키유천', '시아준수'];
+
+
+while (true) {
+    var modTarget = prompt(`현재 멤버: [${tvxq}]\n수정할 이름을 입력하세요.`);
+
+    if (tvxq.includes(modTarget)) {
+        // 일단은 존재함
+        var newMemberName = prompt('새로운 멤버 이름을 입력하세요.');
+
+        tvxq[tvxq.indexOf(modTarget)] = newMemberName;
+        alert(`수정 완료!\n현재 멤버: [${tvxq}]`);
+
         break;
-    }
 
+    } else {
+        alert(`${modTarget}은(는) 잘못된 이름입니다.\n다시 입력하세요!`);
+    }
 }
 
-while(true){
-    var addMember = prompt(`현재 멤버 : ${dong}\n수정할 이름을 입력하세요.`);
+//나의 해답!!!!
+// var dong = ['유노윤호', '최강창민', '영웅재중', '믹키유천', '시아준수'];
 
-    if(dong.includes(addMember)){
-        var newMember = prompt('새로운 멤버 이름을 입력하세요.');
-        dong.splice(dong.indexOf(addMember),1,newMember);
-        alert(`수정완료!\n현재 멤버: ${dong}`);
-    } else{
-        alert(`${addMember}은(는) 잘못된 이름입니다.\n다시 입력하세요!`);
-    }
+// while(true){
+//     var deleteMember = prompt(`현재 멤버 : ${dong}\n삭제할 이름을 입력하세요.`);
+//     if(dong.includes(deleteMember)){
+//         dong.splice(dong.indexOf(deleteMember),1);
+//         alert(`삭제완료!\n남은 멤버: [${dong}]`);
+//     } else{
+//         alert(`${deleteMember}은(는) 잘못된 이름입니다.\n다시 입력하세요!`);
+//     }
 
-}
+//     if(dong.length === 0){
+//         alert('모든 멤버가 삭제되었습니다.');
+//         break;
+//     }
+
+// }
+
+// while(true){
+//     var addMember = prompt(`현재 멤버 : ${dong}\n수정할 이름을 입력하세요.`);
+
+//     if(dong.includes(addMember)){
+//         var newMember = prompt('새로운 멤버 이름을 입력하세요.');
+//         dong.splice(dong.indexOf(addMember),1,newMember);
+//         alert(`수정완료!\n현재 멤버: [${dong}]`);
+//     } else{
+//         alert(`${addMember}은(는) 잘못된 이름입니다.\n다시 입력하세요!`);
+//     }
+
+// }
 
 
 
