@@ -39,6 +39,52 @@ console.log(arrayLike);
 
 console.log(`배열의 데이터 수: ${fruits.length}`);
 
+//배열 데이터 참조(reference)
+console.log(`첫번째 데이터: ${fruits[0]}`);
+console.log(`마지막 데이터: ${fruits[fruits.length-1]}`);
+
+//배열 요소 수정 
+fruits[1] = '파인애플';
+
+console.log(fruits);
+
+//수정시 주의사항 
+// fruits[4] = '초콜릿';
+// console.log(fruits);
+
+//배열 내부데이터 전체 참조 (순회: traivs)
+//선형 탐색: 순차적으로 확인해보면서 찾기 
+var target = '바나나';
+//찾았는지에 대한 여부 
+var findFlag = false;
+
+for(var i =0; i<fruits.length; i++){
+    // console.log(fruits[i]); 
+
+    if(fruits[i] === target){
+        console.log(`${target} 과일은 존재함!`);
+        findFlag = true;
+        break;
+    }
+}
+if(!findFlag) console.log(`${target} 과일 없음!`);
+
+//for~of 반복문 (배열 전용 반복문)
+var weekDays = ['월','화','수',
+                    '목','금','토','일'];
+
+console.log('==========================');
+
+// for(var i=0; i<weekDays.length; i++){
+//     console.log(`${weekDays[i]}요일!`);
+// } //-> 특정 index사용할때는 꼭이거 사용
+for (var day of weekDays){
+    console.log(`${day}요일!`);
+}
+
+
+
+
 
 
 
