@@ -21,6 +21,6 @@ while(true){
     alert(`[${player[rn-1]}님의 턴!] 탄창을 회전합니다.\n#엔터를 누르면 격발합니다.`);
 
     if(dead === 0) {
-        alert(`# 빵!! [${player[]}]`)
+        alert(`# 빵!! [${player[]}]`);
     }
 }
