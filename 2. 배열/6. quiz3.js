@@ -36,7 +36,10 @@ while(true){
     }
     
     alert(`안녕안녕0`);
-    
+    alert(`안녕안녕1`);
+    alert(`안녕안녕2`);
+    alert(`안녕안녕2`);
+    alert(`안녕안녕2`);
     if(gunSeed === 0 ){
         alert(`# 총알이 모두 소진되었습니다. 게임을 종료합니다.\n# 생존한 인원 : [${player}]`);
         break;
