@@ -28,7 +28,7 @@ var message = `${month}월 ${day}일은 ${anniversary}입니다.`;
 // 논리 
 var flag = false;
 console.log(typeof flag);
-
+ 
 
 var userAge = 5;
 userAge = null;
