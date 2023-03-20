@@ -79,7 +79,7 @@ console.log(foodList);
 foodList.splice(1, 0, '마라탕'); 
 console.log(foodList);
 
-foodList.splice(2,0,'아이스크림', '떡볶이');
+foodList.splice(2, 0, '아이스크림', '떡볶이');
 console.log(foodList);
 
 //2번부터 끝까지 다 지움
