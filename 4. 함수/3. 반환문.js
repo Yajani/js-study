@@ -5,7 +5,7 @@ function add(n1, n2) {
 
     console.log('메롱');
 }
-
+ 
 // 반환값: 함수 호출 이후에 함수밖으로 전달되는 값
 var r1 = add(5, 7);
 
@@ -31,3 +31,32 @@ multi(add(4,3), add(5,5));
 
 var r4 = add(multi(3,2), 40);
 console.log(`r4: ${r4}`);
+
+//return 탈출문
+function callName(nickName) {
+    var prohibits = ['멍청이','돌아이','홍길동'];
+
+    if(prohibits.includes(nickName)) {
+        console.log(`잘못된 닉네임은 인사를 못해줘 이놈아`);
+        return; //함수가 강제 종료됨 
+    }
+
+    console.log(`${nickName}님 안녕하세요!`);
+}
+callName('바둑이');
+
+function stopLoop(flag) {
+    while(true) {
+        var flag = prompt('명령어를 입력하세요!');
+        if(flag === '멈춰'){
+            //반복문을 끝낼뿐만아니라 함수를 끝낸다.
+            return;
+            // break;
+        }
+        alert(flag);
+
+    }
+    alert('수고용~');
+}
+
+stopLoop();
