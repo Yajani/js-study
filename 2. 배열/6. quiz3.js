@@ -26,6 +26,8 @@ while(true){
     var target = Math.floor(Math.random() * player.length) + 1;
     var dead2 = Math.floor(Math.random() * 1) + 0;    
     
+    alert(`[${player[target-1]}님의 턴!] 탄창을 회전합니다.\n#엔터를 누르면 격발합니다.`);
+
     if(dead2 === 0) {
         alert(`# 빵!! [${player[target-1]}]님 사망...RIP`);
         gunSeed--;
@@ -34,7 +36,8 @@ while(true){
         alert(`...휴~~ 살았습니다.`);
         continue;
     }
-    
+
+
     if(gunSeed === 0 ){
         alert(`# 총알이 모두 소진되었습니다. 게임을 종료합니다.\n# 생존한 인원 : [${player}]`);
         break;
