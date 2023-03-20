@@ -29,7 +29,56 @@ var userInfo = {
     ]
 };
 
+// 회원목록 배열
+var userList = userInfo.userList;
 
+
+
+while (true) {
+
+    // 계정 입력받기
+    var inputAccount = prompt('아이디를 입력하세요!');
+    // var inputAccount = 'kim1234';
+
+    // 회원목록을 반복하여 입력한 계정명과 일치하는 객체를 탐색
+    var foundUser = null; // 로그인 시도하는 회원의 정보객체
+
+    for (var user of userList) {
+        if (inputAccount === user.account) {
+            // console.log('회원가입했다!');
+            foundUser = user;
+            break;
+        }
+    }
+
+    // foundUser에는 로그인시도하는 회원의 정보가 들어있다.
+    // 로그인시도회원이 잘못된 계정을 입력하면 null로 유지되어 있음.
+    // console.log(foundUser);
+
+    if (foundUser !== null) {
+        // console.log('일단 회원가입은 했구나 너 ');
+
+        // 비밀번호 검증
+        // 일단 써바바
+        var inputPassword = prompt('비밀번호를 입력하세요!');
+
+        if (inputPassword === foundUser.password) {
+            alert(`${foundUser.username}님 환영합니다~~!`);
+            break;
+        } else {
+            alert('비밀번호가 틀렸습니다.');
+        }
+
+    } else {
+        alert('존재하지 않는 회원입니다.');
+    }
+
+}
+
+
+
+/*
+//나의 풀이
 var bbs = userInfo.userList;
 var endflag = false;
 while(true){
@@ -58,3 +107,4 @@ while(true){
     }
 
 }
+*/
