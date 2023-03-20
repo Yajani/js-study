@@ -17,16 +17,45 @@ var h = 178.4, w = 78.2;
 
     if( bmi >= 25.0){
         console.log('당신은 과체중입니다.');
-        return bmi;
     } else if(bmi <= 18.5){
         console.log(`당신은 저체중입니다.`);
-        return bmi;
     } else{
         console.log('당신은 정상체중입니다.');
-        return bmi;
     }
-    
+    return bmi;
  }
 
+ var myBmi = calcBMI(h, w);
+ console.log(`키 -> ${h}cm, 체중 -> ${w}kg의 체질량지수는 ${Math.round(myBmi*100)/100}입니다.`);
+
+// t-풀이
+ function calcBMI(height, weight) {
+
+    var kg = weight;
+    var m = height / 100;
+    var bmi = kg / (m * m);
+ 
+    if (bmi >= 25.0) {
+       console.log('당신은 과체중입니다.');
+    } else if (bmi <= 18.5) {
+       console.log('당신은 저체중입니다.');
+    } else {
+       console.log('당신은 정상체중입니다.');
+    }
+ 
+    return bmi;
+ }
+//자리수 반올림 함수
+function round(number, digit){
+    //numberL 5.7788
+    //* 100 = 577.88
+    //  /100 = 5.78
+
+    //2째자리까지 Math.round(number * 10 ** 2) / 10 ** 2
+    //3째자리까지 Math.round(number * 10 ** 3) / 10 ** 3
+    //digit째자리 Math.round(number * 10 ** digit) / 10 ** digit
+
+    return Math.round(number * 10 ** digit) / 10 ** digit;
+}
  var myBmi = calcBMI(h, w);
  console.log(`키 -> ${h}cm, 체중 -> ${w}kg의 체질량지수는 ${Math.round(myBmi*100)/100}입니다.`);
