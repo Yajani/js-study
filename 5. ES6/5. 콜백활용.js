@@ -12,7 +12,7 @@ const userList = [
         userName: '빠나나',
         job: '과일',
         address: '서울',
-        hobbys: ['수영', '테니스']
+        hobbys: ['푸트파이팅', '테니스']
     },
     {
         account: 'park1234',
@@ -26,7 +26,7 @@ const userList = [
         userName: '불꽃남자카리스마',
         job: '게이머',
         address: '서울',
-        hobbys: ['축구', '테니스']
+        hobbys: ['독서', '테니스']
     },
 ];
 
@@ -64,107 +64,178 @@ console.log('==========================');
 
 
 // 취미가 딱 2개인 회원들만 
-//필터링해서 새로운 배열에 담아줘 
+// 필터링해서 새로운 배열에 담아줘
 function filter2Hobby() {
-    //새로운 배열 생성
+
+    // 새로운 배열 생성
     const filteredArray = [];
 
-    for(const user of userList) {
-        if (user.hobbys.length === 2){
+    for (const user of userList) {
+        if (user.hobbys.length === 2) {
             filteredArray.push(user);
         }
     }
 
     return filteredArray;
+}
 
-} 
 // 경기 사는 회원들만 
-//필터링해서 새로운 배열에 담아줘 
+// 필터링해서 새로운 배열에 담아줘
 function filterUserLivedInSeoul() {
-    //새로운 배열 생성
+
+    // 새로운 배열 생성
     const filteredArray = [];
 
-    for(const user of userList) {
-        if (user.address === '경기'){
+    for (const user of userList) {
+        if (user.address === '경기') {
             filteredArray.push(user);
         }
     }
 
     return filteredArray;
+}
 
-} 
 
-
-//특정 필터조건에 의해 필터링하는 함수 
+// 특정 필터조건에 의해 필터링하는 함수
 function filter(condition) {
-    //새로운 배열 생성
+
+    // 새로운 배열 생성
     const filteredArray = [];
 
-    for(const user of userList) {
-        if (condition(user)){
+    for (const user of userList) {
+        if (condition(user)) {
             filteredArray.push(user);
         }
     }
+
     return filteredArray;
-
-} 
-
-
-
+}
 
 // const newArray = filter2Hobby();
 // console.log(newArray);
 
-// const newArray2 = filterUserLivedInSeoul();
-// console.log(newArray2);
+// const newArray = filter(u => u.address === '서울');
+const newArray = filter(u => u.hobbys.length >= 3);
+console.log(newArray);
 
-// const newArray3 = filter(u => u.address === '서울');
-const newArray3 = filter(u => u.hobbys.length >= 3);
-console.log(newArray3);
 
-//배열 고차함수 filter()
-//특정 조건에 의해 필터링된 배열을 반환
-console.log('===========================');
+// 배열 고차함수 filter()
+// 특정 조건에 의해 필터링된 배열을 반환
+console.log('============');
 
 const numberArray = [1,2,3,4,5,6,7,8,9,10];
 
-const newArr = numberArray.filter(n => n % 2 === 0);
+const newArr = numberArray.filter(n => n % 3 === 0);
 console.log(newArr);
 
-const user1 = 
-    userList.filter(user => user.account == 'abc1234');
+const user1 
+    = userList.filter(user => user.account === 'abc1234');
 
 console.log(user1);
 
-console.log('=============================');
+console.log('=======================');
 
-//배열 고차함수 map()
-//특정 배열에서 특정 조건에 맞는 값들만 다로 모아서 
+// 배열 고차함수 map()
+// 특정 배열에서 특정 조건에 맞는 값들만 따로 모아서 
 // 매핑한 배열을 반환
 
 const doubles = numbers.map(n => n ** 2);
 console.log(doubles);
 
-const plusTwo = numberArray.map(n => n + 2 );
+const plusTwo = numberArray.map(n => n + 2);
 console.log(plusTwo);
 
-const userNames = userList.map(user => user.userName);
+console.log('!!!!!!!!!!!!!');
+const userNames = userList.map(user => user.address);
 console.log(userNames);
 
-//userList에서 원하는 프로퍼티 값을 매핑하는 함수
-function myMap(){
 
+// userList에서 원하는 프로퍼티 값을 매핑하는 함수
+function myMap(callback) {
+    
+    // 이름만 담을 배열
+    const mappedArray = [];
+
+    for (const user of userList) {
+        mappedArray.push(callback(user));
+    }
+    return mappedArray;
 }
 
-const userNames2 = myMap(user => user.userName);
+const userNames2 = myMap(user => ({
+    userName: user.userName,
+    address: user.address
+}));
+console.log(userNames2);
 
 
+console.log('=========================');
+
+const appleBasket = [
+    {
+        color: 'green',
+        sweet: 13
+    },
+    {
+        color: 'red',
+        sweet: 14
+    },
+    {
+        color: 'red',
+        sweet: 11
+    },
+    {
+        color: 'green',
+        sweet: 6
+    },
+    {
+        color: 'green',
+        sweet: 7
+    },
+    {
+        color: 'green',
+        sweet: 9
+    }
+];
 
 
+// 사과중 녹색이면서 당도가 9이상인 사과만 선별하여
+// 이 사과는 xxx색이며 당도가 xxx입니다.
+// 라는 문자열이 모여있는 배열을 리턴하세요.
+
+console.log('=======================');
+const filteredApples = 
+    appleBasket.filter(apple => apple.color === 'green' && apple.sweet >= 9);
+
+const mappedApples = 
+    filteredApples.map(apple => `이 사과는 ${apple.color}색이면서 당도는 ${apple.sweet}입니다.`);
+
+console.log(mappedApples);
 
 
+console.log('==============================');
 
+//userList에서 서울사는 user들의 
+//첫번째 취미만 모아서 리턴
+const filterdusers = 
+    userList.filter(user => user.address === '서울');
 
+const mappeduser = 
+    filterdusers.map(user => `${user.hobbys[0]}`);
+
+console.log(mappeduser);
+
+console.log('=================================================');
+
+userList // [{5}, {5}, {5}, {5}]
+  .filter(user => user.address === '서울') // [{5}, {5}, {5}]
+  .map(user => ({
+    firstHobby: user.hobbys[0],
+    name : user.userName
+  })) // [{2}, {2}, {2}]
+  .forEach(info => {
+    console.log(`${info.name}회원의 첫번째 취미는 ${info.firstHobby}입니다.`);
+  }); 
 
 
 
