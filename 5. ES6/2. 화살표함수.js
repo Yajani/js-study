@@ -24,7 +24,7 @@ console.log(`r1 : ${r1}`);
 //     console.log('안녕하세요');
 // }
 
-const sayHello = () => console.log('안녕하세요');
+const sayHello = () => console.log('안녕하세요'); //매개변수가 없을때!
 
 sayHello();
 
