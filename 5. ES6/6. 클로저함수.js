@@ -12,6 +12,7 @@ function calculator(n1, n2) {
 
 // const calculator = (n1, n2) => () => n1 + n2;
 
+
 /*
 function calculator(n1, n2) {
     return () => n1 + n2;
@@ -19,7 +20,7 @@ function calculator(n1, n2) {
 
 
 const zzz = calculator(5, 7);
-console.log(typeof zzz);
+console.log(typeof zzz); //함수를 리턴했으므로 zzz는 함수 
 
 const n = zzz();
 console.log(`n : ${n}`);
@@ -51,16 +52,16 @@ console.log(increase());
 console.log(increase()); // 3??
 */
 
-/*
+/* //이런문제 해결을 위해서 클로저를 사용
 const increaseClosure = () => {
 
     let count = 0; // 지역 변수 
 
-    return () => ++count;
+    return () => ++count; //함수를 리턴
 };
 
 
-const increase = increaseClosure();
+const increase = increaseClosure(); //함수
 
 console.log(increase());
 console.log(increase());
