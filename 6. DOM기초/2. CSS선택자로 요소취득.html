@@ -24,11 +24,25 @@
         $grape.textContent = '맛있는 포도';
 
         //선택자에 해당하는 모든 요소를 취득 
-        const elements = document.querySelectorAll('.fr');
+        const elements = [...document.querySelectorAll('.fr')];
         console.log(elements);
 
-        elements.pop();
-        console.log(elements);
+        //elements[2].style.background = 'red';
+        for (const  $li of elements) {
+            $li.style.boreder = '1px dashed skyblue';
+        }
+
+        // elements.age = 10;
+        // console.log(elements);
+
+        const [a,b,c,d] = [...document.querySelectorAll('li')];
+        
+        d.textContent = '어피치';
+
+        elements.forEach($li => {
+            $li.style.color = 'blue';
+        });
+
     </script>
 </body>
 </html>
