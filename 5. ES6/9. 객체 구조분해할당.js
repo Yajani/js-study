@@ -1,3 +1,4 @@
+
 const emp = {
     empName: '빡빡이',
     age : 29,
@@ -6,20 +7,23 @@ const emp = {
 };
 
 /*
-// const empName = emp.empName;
-// const age = emp.age;
-// const birthDay = emp.birthDay;
+const empName = emp.empName;
+const age = emp.age;
+const birthDay = emp.birthDay;
+*/
 
-const { empName, birthDay, age} = emp;
+/*
+const { empName, birthDay, age } = emp;
 
 console.log(`${empName}님의 나이는 ${age}살이고 생일은 ${birthDay}입니다`);
 */
 
-const { empName: en, birthDay: bd, age: a} = emp;
+const { empName: en, birthDay: bd, age: a } = emp;
+
 console.log(`${en}님의 나이는 ${a}살이고 생일은 ${bd}입니다`);
 
 
-console.log('=====================================');
+console.log('=======================');
 
 const {birthDay, age, ...rest} = emp;
 
@@ -27,13 +31,12 @@ console.log(birthDay);
 console.log(age);
 console.log(rest);
 
-
-//객체 안전 복사: 스프레드 
-const copyEmp = {
-    ...emp, //전체 복사후 값 추가 
-    address:'서울시',
-    hobbies: ['놀고먹기','낮잠'],
-    empName: '망둥어' //수정도 가능하다
+// 객체 안전 복사 : 스프레드
+const copyEmp = { 
+    ...emp,
+    address: '서울시',
+    hobbies: ['놀고먹기', '낮잠'],
+    empName: '망둥어'
 };
 
 console.log(copyEmp);
