@@ -62,5 +62,6 @@ const r3 = divide(30,6);
 console.log(`r3 : ${r3}`); 
 
 
-
-
+for (const item of object) {
+  
+}

@@ -75,10 +75,3 @@ function showMessage(message ,howTo){
 
 
 
-
-
-
-
-
-
-
