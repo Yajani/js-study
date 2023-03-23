@@ -12,7 +12,47 @@
     </ul>
 
     <script>
-        
+        //만들면서 추가하는 함수 
+        // function append(items) {
+        //   appendNewTag(items.$parent, makeTag(items.tagName, items.text));
+        // }
+        function append({$parent, tagName, text}) {
+            appendNewTag($parent, makeTag(tagName, text));
+        }
+
+
+        //태그이름과 텍스트를 전달받으면 태그를 생성하는 함수
+        function makeTag(tagName, text = '') {
+          const $newTag = document.createElement(tagName);
+          if(text) $newTag.textContent = text;
+          return $newTag;
+        }
+
+        // 부모태그를 알려주면 자식을 추가해주는 함수 
+        function appendNewTag($parent, $target) {
+            $parent.appendChild($target)
+        }
+        const $fruits = document.querySelector('#fruits'); //querySelector를 쓸때는 id에 #을 붙여야한다.
+
+        //li태그 생성 : <li></li>
+        const $newLi = document.createElement('li'); //깡통을 만들었다
+
+        //텍스트 추가 : <li>바나나</li>
+        $newLi.textContent = '바나나';
+
+        //새로운노드를 자식으로 추가하는 명령
+        $fruits.appendChild($newLi);
+
+        const fruitNames = ['바나나','딸기','포도','자몽','오렌지','레몬'];
+
+        fruitNames.forEach(fn => {
+          append({
+            $parent : $fruits, 
+            tagName :'li',
+            text: fn
+          });
+        });
+
     </script>
 
 
