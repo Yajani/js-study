@@ -9,3 +9,4 @@ import * as bar from './bar.js';
 
 console.log(foo.add(10, 20));
 console.log(`x: ${bar.x}`);
+console.log(`x: ${foo.x}`);
