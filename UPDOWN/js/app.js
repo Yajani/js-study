@@ -1,16 +1,5 @@
 
-// 게임 데이터
-const gameData = {
-    secret: makeRandomNumber(100), // 실제 정답
-    answer: null,  // 사용자의 선택값
-    min: 1,   // 최소범위설정
-    max: 100  // 최대범위설정
-};
-
-// 랜덤정수를 범위에 맞게 생성하는 함수
-function makeRandomNumber(range) {
-    return Math.floor(Math.random() * range) + 1;
-}
+import gameData from './gameData.js';
 
 
 
@@ -62,10 +51,58 @@ function checkNumber($target) {
     if (secret === answer) { // 정답인 경우
         correctAnswer($target);
     } else if (secret > answer) { // up인 경우
-        caseUp();
+        caseUp($target);    
     } else {    // down인 경우
-        caseDown();
+        caseDown($target);
     }
+}
+
+function caseUp($icon) {
+
+    // 1. #begin의 숫자값이 클릭값 + 1로 변경
+    document.getElementById('begin').textContent = +$icon.dataset.iconNumber + 1;
+
+    // 2. #down .selected 제거, #up에 추가
+    document.getElementById('down').classList.remove('selected');
+    document.getElementById('up').classList.add('selected');
+
+    // 3. 자기 자신 아이콘포함 이전형제들 모두 삭제
+    const $numbers = document.getElementById('numbers');
+
+    // iterator 디자인 패턴
+    let $delTarget = $icon;
+    while ($delTarget) {
+
+        const $nextTarget = $delTarget.previousElementSibling;
+        $numbers.removeChild($delTarget);
+        $delTarget = $nextTarget;
+    }
+    
+    
+
+}
+
+function caseDown($icon) {
+
+    // 1. #end의 숫자값이 클릭값 - 1로 변경
+    document.getElementById('end').textContent = +$icon.dataset.iconNumber - 1;
+
+    // 2. #up .selected 제거, #down에 추가
+    document.getElementById('up').classList.remove('selected');
+    document.getElementById('down').classList.add('selected');
+
+    // 3. 자기 자신 아이콘포함 다음형제들 모두 삭제
+    const $numbers = document.getElementById('numbers');
+
+    // iterator 디자인 패턴
+    let $delTarget = $icon;
+    while ($delTarget) {
+
+        const $nextTarget = $delTarget.nextElementSibling;
+        $numbers.removeChild($delTarget);
+        $delTarget = $nextTarget;
+    }
+
 }
 
 function correctAnswer($correctIcon) {
