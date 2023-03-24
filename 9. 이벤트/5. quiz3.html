@@ -1,63 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .btn {
-            background: rgb(160, 40, 40);
-            color: bisque;
-            width: 200px;
-            height: 80px;
-            font-size: 30px;
-            margin-left: 300px;
-        }
-        #drop-content {
-            /* background: orange; */
-            height: 600px;
-            width: 200px;
-            font-size: 30px;
-            margin-left: 300px;
-            
-            
-            /* flex-direction: row; */
-        }
-        #drop-content a {
-            width: 300px;
-            height: 80px;
-            background: lightgray;
-            text-decoration: none;
-            color: black;
-            border: 1px solid #000;
-            padding: 20px;
-            margin-top: 100px;
-        }
-    </style>
 </head>
+<style>
+
+.dropdown {
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+}
+.dropdown .btn{
+    padding: 10px 40px;
+    font-size:20px;
+    background: brown;
+    color: wheat;
+}
+#drop-content{
+    display: none;
+    position: absolute;
+    z-index: 99;
+}
+#drop-content a{
+    display:block;
+    font-size: 20px;
+    background: #dfdfdf;
+    color: black;
+    text-decoration: none;
+    padding: 10px 36px;
+    margin-top: 2px;
+}
+#drop-content a:hover {
+    background: rgb(61, 60, 60);
+    color: #fff;
+}
+</style>
 <body>
     <div class="dropdown">
         <button class="btn">Drop</button>
-        <div style="display: none;" id="drop-content">
-            <a href="#">Menu1</a>
-            <a href="#">Menu2</a>
-            <a href="#">Menu3</a>
-            <a href="#">Menu4</a>
-            <a href="#">Menu5</a>
+        <div id="drop-content">
+            <a href='#'>Menu1</a>
+            <a href='#'>Menu2</a>
+            <a href='#'>Menu3</a>
+            <a href='#'>Menu4</a>
+            <a href='#'>Menu5</a>
         </div>
-    </div>  
+        
+    </div>
 
     <script>
+        
+        const $dropContent = document.getElementById("drop-content");
         const $btn = document.querySelector('.btn');
-        const $drop = document.querySelector('#drop-content');
-        const $drop_a = document.querySelectorAll('#drop-content a');
-        $btn.onclick = () => {
-            // document.querySelector('#drop-content').style. = ;
-            $drop.style.cssText = 'display : block;';
-            $drop_a.style.cssText = 'margin-top : 30px;';
 
+        $btn.onmouseover = () => {
+            $dropContent.style.display = "block"; 
         };
+
+
+        /*
+            세뚜세뚜
+            mouseover, mouseout : 버블링 있음
+            mouseenter, mouseleave : 버블링 없음
+        */
+
+        $btn.parentElement.onmouseleave = () => {
+            $dropContent.style.display = "none"; 
+        };
+        
     </script>
 </body>
-</html> 
+</html>
